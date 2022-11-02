@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 只有key是enter时调用 vm.submit 只有在key是esc时调用vm.clearInput -->
+        <input type="text" @keyup.enter="submit" @keyup.esc="clearInput">
+    </div>
+    <script src="./lib/vue-2.6.12.js"></script>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            methods: {
+                submit(e) {
+                    console.log('恩下了enter键，最新的是值是：' + e.target.value);
+                },
+                clearInput(e) {
+                    e.target.value = ''
+                },
+            }
+        })
+    </script>
+</body>
+
+</html>
